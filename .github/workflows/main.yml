@@ -1,16 +1,19 @@
 name: Download 3x-ui Release Asset
 
-permissions:
-  contents: write
-
 on:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   download:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Download x-ui-linux-amd64.tar.gz
         uses: robinraju/release-downloader@v1
         with:
@@ -20,16 +23,10 @@ jobs:
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Show downloaded files
+      - name: Commit and push file
         run: |
-          echo "Downloaded files:"
-          ls -lah ./downloads || echo "No files were downloaded!"
-          
-      - name: Commit and push file to repository
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
           git add downloads/x-ui-linux-amd64.tar.gz
-          git commit -m "Add downloaded x-ui-linux-amd64.tar.gz"
+          git commit -m "Add x-ui-linux-amd64.tar.gz"
           git push
-
