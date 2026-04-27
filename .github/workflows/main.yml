@@ -8,7 +8,7 @@ permissions:
 
 env:
   # ← CHANGE ONLY THIS
-  DOWNLOAD_URL: "https://github.com/2dust/v2rayN/releases/download/7.20.4/v2rayN-windows-64.zip"
+  DOWNLOAD_URL: "https://files.teamspeak-services.com/pre_releases/client/6.0.0-beta3.4/teamspeak-client.msi"
 
 jobs:
   download-and-commit:
