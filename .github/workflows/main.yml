@@ -1,4 +1,4 @@
-name: Download 3x-ui Release Asset
+name: Release Downloader
 
 on:
   workflow_dispatch:
@@ -18,7 +18,7 @@ jobs:
         uses: robinraju/release-downloader@v1
         with:
           repository: rustdesk/rustdesk
-          tag: v1.4.6
+          tag: 1.4.6
           fileName: "rustdesk-1.4.6-x86_64.deb"
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
