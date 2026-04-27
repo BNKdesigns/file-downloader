@@ -1,4 +1,4 @@
-name: Release Downloader
+name: Download Latest Release Asset
 
 on:
   workflow_dispatch:
@@ -6,27 +6,39 @@ on:
 permissions:
   contents: write
 
+env:
+  REPO: "2dust/v2rayN"
+  DOWNLOAD_TARGET: "v2rayN-windows-64.zip"   # ← CHANGE ONLY THIS
+
 jobs:
-  download:
+  download-latest:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download file
+      - name: Get latest release tag
+        id: release
+        uses: pozetroninc/github-action-get-latest-release@v1
+        with:
+          repository: ${{ env.REPO }}
+
+      - name: Download asset from latest release
         uses: robinraju/release-downloader@v1
         with:
-          repository: 2dust/v2rayN
-          tag: 7.20.4
-          fileName: "v2rayN-windows-64.zip"
+          repository: ${{ env.REPO }}
+          tag: ${{ steps.release.outputs.release }}
+          fileName: ${{ env.DOWNLOAD_TARGET }}
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit and push file
+      - name: Commit and push downloaded file
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add vpns/v2rayN-windows-64.zip
-          git commit -m "Add file"
+
+          git add downloads/*
+          git commit -m "Add latest release asset: ${{ env.DOWNLOAD_TARGET }}" || echo "No changes to commit"
+
           git push
