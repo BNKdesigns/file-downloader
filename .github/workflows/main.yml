@@ -8,7 +8,7 @@ permissions:
 
 env:
   # ← CHANGE ONLY THIS
-  DOWNLOAD_URL: "https://files.teamspeak-services.com/pre_releases/client/6.0.0-beta3.4/teamspeak-client.msi"
+  DOWNLOAD_URL: "https://github.com/developerman9876/SigmaClient/releases/download/v1.0.0/Sigma.zip"
 
 jobs:
   download-and-commit:
