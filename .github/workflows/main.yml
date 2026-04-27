@@ -19,7 +19,7 @@ jobs:
         with:
           repository: rustdesk/rustdesk-server
           tag: 1.1.15
-          fileName: "rustdesk-server-hbbs_1.1.15_amd64.deb"
+          fileName: "rustdesk-server-utils_1.1.15_amd64.deb"
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,6 +27,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add downloads/rustdesk-server-hbbs_1.1.15_amd64.deb
+          git add downloads/rustdesk-server-utils_1.1.15_amd64.deb
           git commit -m "Add file"
           git push
