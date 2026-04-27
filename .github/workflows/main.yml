@@ -1,2 +1,5 @@
-- name: release-downloader
-  uses: robinraju/release-downloader@v1.13
+- uses: robinraju/release-downloader@v1
+  with:
+    repository: 'MHSanaei/3x-ui'
+    tag: 'v2.9.2'
+    fileName: 'x-ui-linux-amd64.tar.gz'
