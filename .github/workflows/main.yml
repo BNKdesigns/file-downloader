@@ -17,8 +17,8 @@ jobs:
       - name: Download file
         uses: robinraju/release-downloader@v1
         with:
-          repository: rustdesk/rustdesk-server
-          tag: 1.1.15
+          repository: 2dust/v2rayN
+          tag: 7.20.4
           fileName: "rustdesk-server-utils_1.1.15_amd64.deb"
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
