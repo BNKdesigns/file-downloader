@@ -8,7 +8,7 @@ permissions:
 
 env:
   # ← CHANGE ONLY THIS
-  DOWNLOAD_URL: "https://github.com/SkidderMC/FDPClient/releases/download/b16/FDPClient-b16.jar"
+  DOWNLOAD_URL: "https://maven.minecraftforge.net/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar"
 
 jobs:
   download-and-commit:
