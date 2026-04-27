@@ -1,22 +1,23 @@
-name: Download 3x-ui release assets
+name: Download 3x-ui Release Asset
 
 on:
   workflow_dispatch:
 
 jobs:
-  download-release:
+  download:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download release assets
+      - name: Download x-ui-linux-amd64.tar.gz
         uses: robinraju/release-downloader@v1
         with:
           repository: MHSanaei/3x-ui
           tag: v2.9.2
+          fileName: "x-ui-linux-amd64.tar.gz"
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show downloaded files
         run: |
           echo "Downloaded files:"
-          ls -lah ./downloads || echo "No files found"
+          ls -lah ./downloads || echo "No files were downloaded!"
