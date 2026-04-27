@@ -14,12 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Download x-ui-linux-amd64.tar.gz
+      - name: Download file
         uses: robinraju/release-downloader@v1
         with:
           repository: rustdesk/rustdesk
           tag: 1.4.6
-          fileName: "rustdesk-1.4.6-x86_64.deb"
+          fileName: "rustdesk-1.4.6-x86_64.exe"
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -27,6 +27,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add downloads/rustdesk-1.4.6-x86_64.deb
+          git add downloads/rustdesk-1.4.6-x86_64.exe
           git commit -m "Add file"
           git push
