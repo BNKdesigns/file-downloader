@@ -18,7 +18,7 @@ jobs:
         uses: robinraju/release-downloader@v1
         with:
           repository: rustdesk/rustdesk-server
-          tag: 1.4.6
+          tag: latest
           fileName: "rustdesk-server-windows-x86_64-unsigned.zip"
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
