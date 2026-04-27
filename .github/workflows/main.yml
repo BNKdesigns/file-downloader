@@ -1,6 +1,19 @@
-- name: Download all release assets
-  uses: robinraju/release-downloader@v1
-  with:
-    repository: MHSanaei/3x-ui
-    tag: v2.9.2
-    out-file-path: ./downloads
+name: Download 3x-ui release assets
+
+on:
+  workflow_dispatch:   # allows you to run it manually from the Actions tab
+
+jobs:
+  download-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout (optional, if you need repo files)
+        uses: actions/checkout@v4
+
+      - name: Download all release assets
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MHSanaei/3x-ui
+          tag: v2.9.2
+          out-file-path: ./downloads
