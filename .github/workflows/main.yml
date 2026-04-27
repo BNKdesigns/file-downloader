@@ -21,9 +21,12 @@ jobs:
         run: |
           echo "Downloaded files:"
           ls -lah ./downloads || echo "No files were downloaded!"
+          
+      - name: Commit and push file to repository
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add downloads/x-ui-linux-amd64.tar.gz
+          git commit -m "Add downloaded x-ui-linux-amd64.tar.gz"
+          git push
 
-      - name: Upload downloaded asset
-        uses: actions/upload-artifact@v4
-        with:
-          name: x-ui-linux-amd64
-          path: ./downloads/x-ui-linux-amd64.tar.gz
