@@ -3,9 +3,6 @@ name: Download Latest Release Asset
 on:
   workflow_dispatch:
 
-permissions:
-  contents: write
-
 env:
   REPO: "2dust/v2rayN"
   DOWNLOAD_TARGET: "v2rayN-windows-64.zip"   # ← change only this
@@ -15,9 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Get latest release tag
         id: latest
         run: |
@@ -33,11 +27,8 @@ jobs:
           out-file-path: ./downloads
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-
-          git add downloads/*
-          git commit -m "Add latest release: ${{ env.DOWNLOAD_TARGET }}" || echo "No changes"
-          git push
+      - name: Upload downloaded file as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: downloaded-release-${{ steps.latest.outputs.tag }}
+          path: ./downloads/*
