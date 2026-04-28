@@ -52,7 +52,7 @@ jobs:
           FILE="${{ steps.download.outputs.filename }}"
           SIZE="${{ steps.download.outputs.size }}"
 
-          LIMIT=$((99 * 1024 * 1024))
+          LIMIT=$((49 * 1024 * 1024))
 
           if [ "$SIZE" -lt "$LIMIT" ]; then
             PARTS_JSON=$(printf '["%s"]' "$FILE")
@@ -63,7 +63,7 @@ jobs:
 
           BASE="${FILE%.*}"
 
-          zip -s 99m "${BASE}.zip" "$FILE"
+          zip -s 49m "${BASE}.zip" "$FILE"
           rm "$FILE"
 
           PARTS_JSON=$(ls ${BASE}.z* ${BASE}.zip | jq -R . | jq -s .)
