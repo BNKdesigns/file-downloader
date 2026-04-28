@@ -1,95 +1,93 @@
-name: Download and Split Large File (WinRAR-style)
+name: Download Large File + Split + Index
 
 on:
   workflow_dispatch:
+    inputs:
+      URL:
+        description: "File URL to download"
+        required: true
+        type: string
 
 permissions:
   contents: write
 
-env:
-  # ← CHANGE ONLY THIS
-  DOWNLOAD_URL: "https://github.com/kairi003/Get-cookies.txt-LOCALLY/releases/download/v0.7.2/get-cookies.txt-locally_v0.7.2_firefox.zip"
-
 jobs:
-  download-and-commit:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install zip (supports multi-part archives)
-        run: sudo apt-get update && sudo apt-get install -y zip unzip
+      - name: Install tools
+        run: sudo apt-get update && sudo apt-get install -y zip unzip jq
 
-      - name: Create downloads directory
-        run: mkdir -p downloads
+      - name: Prepare folders
+        run: |
+          mkdir -p downloads
+          mkdir -p site
 
-      - name: Download file from URL
-        id: dl
+      - name: Download file
+        id: download
         run: |
           cd downloads
 
-          FILENAME=$(basename "${DOWNLOAD_URL}")
-          echo "filename=${FILENAME}" >> $GITHUB_OUTPUT
+          FILE=$(basename "${URL}")
+          curl -L "${URL}" -o "$FILE"
 
-          echo "Downloading ${DOWNLOAD_URL}"
-          curl -L "${DOWNLOAD_URL}" -o "${FILENAME}"
+          SIZE=$(stat -c%s "$FILE")
+          HASH=$(sha256sum "$FILE" | cut -d ' ' -f1)
 
-          SIZE_BYTES=$(stat -c%s "${FILENAME}")
-          echo "size_bytes=${SIZE_BYTES}" >> $GITHUB_OUTPUT
-
-          echo "Downloaded file size: ${SIZE_BYTES} bytes"
-
+          echo "filename=$FILE" >> $GITHUB_OUTPUT
+          echo "size=$SIZE" >> $GITHUB_OUTPUT
+          echo "sha256=$HASH" >> $GITHUB_OUTPUT
         env:
-          DOWNLOAD_URL: ${{ env.DOWNLOAD_URL }}
+          URL: ${{ inputs.URL }}
 
-      - name: Split only if ≥ 99MB using multi-part ZIP (WinRAR-style)
+      - name: Split if large
         id: split
         run: |
           cd downloads
 
-          FILENAME="${{ steps.dl.outputs.filename }}"
-          SIZE_BYTES="${{ steps.dl.outputs.size_bytes }}"
+          FILE="${{ steps.download.outputs.filename }}"
+          SIZE="${{ steps.download.outputs.size }}"
 
           LIMIT=$((99 * 1024 * 1024)) # 99MB
 
-          if [ "$SIZE_BYTES" -lt "$LIMIT" ]; then
-            echo "File < 99MB, no splitting required."
-            echo "output_pattern=${FILENAME}" >> $GITHUB_OUTPUT
+          if [ "$SIZE" -lt "$LIMIT" ]; then
+            echo "parts=[\"$FILE\"]" >> $GITHUB_OUTPUT
             exit 0
           fi
 
-          echo "File >= 99MB, creating multi-part ZIP archive..."
+          BASE="${FILE%.*}"
 
-          BASENAME="${FILENAME%.*}"
-          EXT="${FILENAME##*.}"
+          zip -s 99m "${BASE}.zip" "$FILE"
 
-          # Multi-part zip output will be:
-          #   BASENAME.zip (last part)
-          #   BASENAME.z01 (first)
-          #   BASENAME.z02 ...
-          #
-          # 99m = 99 megabytes per file
-          zip -s 99m "${BASENAME}.zip" "${FILENAME}"
+          rm "$FILE"
 
-          echo "Multi-part zip archive created:"
-          ls -lh "${BASENAME}".z* "${BASENAME}.zip"
+          PARTS=$(ls ${BASE}.z* ${BASE}.zip | jq -R . | jq -s .)
+          echo "parts=$PARTS" >> $GITHUB_OUTPUT
 
-          # Remove original large file
-          rm "${FILENAME}"
+      - name: Generate JSON index
+        run: |
+          mkdir -p site
 
-          echo "output_pattern=${BASENAME}" >> $GITHUB_OUTPUT
+          cat <<EOF > site/files.json
+          [
+            {
+              "name": "${{ steps.download.outputs.filename }}",
+              "size": "${{ steps.download.outputs.size }}",
+              "sha256": "${{ steps.download.outputs.sha256 }}",
+              "parts": ${{ steps.split.outputs.parts }}
+            }
+          ]
+          EOF
 
-      - name: Commit and push results
+      - name: Commit files
         run: |
           git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
+          git config user.email "actions@github.com"
 
-          echo "Files in downloads directory:"
-          ls -lh downloads
-
-          git add downloads/*
-          git commit -m "Add downloaded file (auto-split if needed) from ${DOWNLOAD_URL}" || echo "No changes to commit"
+          git add downloads site
+          git commit -m "Add downloaded file + index from URL: ${{ inputs.URL }}" || echo "no changes"
           git push
-        env:
-          DOWNLOAD_URL: ${{ env.DOWNLOAD_URL }}
