@@ -1,14 +1,8 @@
 [
   {
-    "name": "AudioEZ_SETUP-v1.0.0.exe",
-    "size": "321682936",
-    "sha256": "0b529a2064f565ca06d7f95dc6d52668b7dff4c7c645cb123fa2807ae61397b3",
-    "parts": [
-  "AudioEZ_SETUP-v1.0.0.z01",
-  "AudioEZ_SETUP-v1.0.0.z02",
-  "AudioEZ_SETUP-v1.0.0.z03",
-  "AudioEZ_SETUP-v1.0.0.zip",
-  "AudioEZ_SETUP-v1.0.0.zip"
-]
+    "name": "hls.js@latest",
+    "size": "543002",
+    "sha256": "442f599c34f103c3355b375a23bdff560592d7117d09a8c847242ea3de2d40e0",
+    "parts": ["hls.js@latest"]
   }
 ]
