@@ -1,12 +1,12 @@
 [
   {
-    "name": "zen-x86_64.AppImage",
-    "size": "121147856",
-    "sha256": "ec0eb5e7d08b0fe08a79d59c24746d0721ae3e36f94c4568c9c34b9d3493e2ea",
+    "name": "FreesmLauncher-Linux-x86_64.AppImage",
+    "size": "113037624",
+    "sha256": "f1ccff5da05867f26483b7b88213cdc46352f9de486dbed0e7aa3ce9c917a120",
     "parts": [
-  "zen-x86_64.z01",
-  "zen-x86_64.zip",
-  "zen-x86_64.zip"
+  "FreesmLauncher-Linux-x86_64.z01",
+  "FreesmLauncher-Linux-x86_64.zip",
+  "FreesmLauncher-Linux-x86_64.zip"
 ]
   }
 ]
