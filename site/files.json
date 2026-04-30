@@ -1,13 +1,8 @@
 [
   {
-    "name": "Miraculous-s6-ep-20-Heartfixer-English-Dub.mp4",
-    "size": "315271848",
-    "sha256": "3a006c743ca1d9937e223e884e43b6cc613efa95c8d12e698c7ce5898dbc4e78",
-    "parts": [
-  "Miraculous-s6-ep-20-Heartfixer-English-Dub.z01",
-  "Miraculous-s6-ep-20-Heartfixer-English-Dub.z02",
-  "Miraculous-s6-ep-20-Heartfixer-English-Dub.zip",
-  "Miraculous-s6-ep-20-Heartfixer-English-Dub.zip"
-]
+    "name": "Happ_beta.apk",
+    "size": "56646709",
+    "sha256": "7d022958513731ea72e5ea511aaae42e3f378d34eec9636403eec1a6f25fab25",
+    "parts": ["Happ_beta.apk"]
   }
 ]
