@@ -1,8 +1,8 @@
 [
   {
-    "name": "install.ps1",
-    "size": "2559",
-    "sha256": "acc15c3d844b8952e702a24b584d2fdc0b589ee1061c11202529cdd5702711df",
-    "parts": ["install.ps1"]
+    "name": "opencode-desktop-windows-x64.exe",
+    "size": "47528544",
+    "sha256": "f906b45b97624400a83b5dc44d739d01dfe5d7c877c1202dcb4bbb9172c1741e",
+    "parts": ["opencode-desktop-windows-x64.exe"]
   }
 ]
