@@ -1,12 +1,8 @@
 [
   {
-    "name": "FreesmLauncher-Linux-x86_64.AppImage",
-    "size": "113037624",
-    "sha256": "f1ccff5da05867f26483b7b88213cdc46352f9de486dbed0e7aa3ce9c917a120",
-    "parts": [
-  "FreesmLauncher-Linux-x86_64.z01",
-  "FreesmLauncher-Linux-x86_64.zip",
-  "FreesmLauncher-Linux-x86_64.zip"
-]
+    "name": "appimagelauncher_3.0.0-beta-2-gha287.96cb937_amd64.deb",
+    "size": "37972152",
+    "sha256": "4117552105968a8011955d065b5fd55f547a2ed21dac1fe0a046ee9b60220c36",
+    "parts": ["appimagelauncher_3.0.0-beta-2-gha287.96cb937_amd64.deb"]
   }
 ]
