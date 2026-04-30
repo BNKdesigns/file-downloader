@@ -1,8 +1,8 @@
 [
   {
-    "name": "appimagelauncher_3.0.0-beta-2-gha287.96cb937_amd64.deb",
-    "size": "37972152",
-    "sha256": "4117552105968a8011955d065b5fd55f547a2ed21dac1fe0a046ee9b60220c36",
-    "parts": ["appimagelauncher_3.0.0-beta-2-gha287.96cb937_amd64.deb"]
+    "name": "mux.min.js",
+    "size": "114526",
+    "sha256": "94cc4bb58e26b96e9160bd9fd7fe0eeae171f0ffb80086e570f8991e1f210ffa",
+    "parts": ["mux.min.js"]
   }
 ]
