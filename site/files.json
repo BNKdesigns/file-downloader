@@ -1,8 +1,29 @@
 [
   {
-    "name": "ffmpeg.js",
-    "size": "4126",
-    "sha256": "a4c09a1997ac582a735fc21e20f9913df4af6dde4ebb373f1d714a4b6e7616f1",
-    "parts": ["ffmpeg.js"]
+    "name": "OllamaSetup.exe",
+    "size": "1939292248",
+    "sha256": "ad66d4b92fee95c4c456f593970275386bfcc50b6db807d0f3f31d997a81e8bb",
+    "parts": [
+  "OllamaSetup.z01",
+  "OllamaSetup.z02",
+  "OllamaSetup.z03",
+  "OllamaSetup.z04",
+  "OllamaSetup.z05",
+  "OllamaSetup.z06",
+  "OllamaSetup.z07",
+  "OllamaSetup.z08",
+  "OllamaSetup.z09",
+  "OllamaSetup.z10",
+  "OllamaSetup.z11",
+  "OllamaSetup.z12",
+  "OllamaSetup.z13",
+  "OllamaSetup.z14",
+  "OllamaSetup.z15",
+  "OllamaSetup.z16",
+  "OllamaSetup.z17",
+  "OllamaSetup.z18",
+  "OllamaSetup.zip",
+  "OllamaSetup.zip"
+]
   }
 ]
