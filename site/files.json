@@ -1,8 +1,8 @@
 [
   {
-    "name": "install",
-    "size": "13690",
-    "sha256": "fc3c1b2123f49b6df545a7622e5127d21cd794b15134fc3b66e1ca49f7fb297e",
-    "parts": ["install"]
+    "name": "opencode-windows-x64.zip",
+    "size": "53811675",
+    "sha256": "954698a20ed338a03ea6416e5a21053a75140e3642413b232f8665e09df73b20",
+    "parts": ["opencode-windows-x64.zip"]
   }
 ]
