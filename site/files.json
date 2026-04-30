@@ -1,8 +1,8 @@
 [
   {
-    "name": "mux.min.js",
-    "size": "114526",
-    "sha256": "94cc4bb58e26b96e9160bd9fd7fe0eeae171f0ffb80086e570f8991e1f210ffa",
-    "parts": ["mux.min.js"]
+    "name": "ffmpeg.js",
+    "size": "4126",
+    "sha256": "a4c09a1997ac582a735fc21e20f9913df4af6dde4ebb373f1d714a4b6e7616f1",
+    "parts": ["ffmpeg.js"]
   }
 ]
