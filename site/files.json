@@ -1,8 +1,8 @@
 [
   {
-    "name": "opencode-desktop-windows-x64.exe",
-    "size": "47528544",
-    "sha256": "f906b45b97624400a83b5dc44d739d01dfe5d7c877c1202dcb4bbb9172c1741e",
-    "parts": ["opencode-desktop-windows-x64.exe"]
+    "name": "install",
+    "size": "13690",
+    "sha256": "fc3c1b2123f49b6df545a7622e5127d21cd794b15134fc3b66e1ca49f7fb297e",
+    "parts": ["install"]
   }
 ]
