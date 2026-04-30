@@ -1,8 +1,12 @@
 [
   {
-    "name": "Happ_beta.apk",
-    "size": "56646709",
-    "sha256": "7d022958513731ea72e5ea511aaae42e3f378d34eec9636403eec1a6f25fab25",
-    "parts": ["Happ_beta.apk"]
+    "name": "zen-x86_64.AppImage",
+    "size": "121147856",
+    "sha256": "ec0eb5e7d08b0fe08a79d59c24746d0721ae3e36f94c4568c9c34b9d3493e2ea",
+    "parts": [
+  "zen-x86_64.z01",
+  "zen-x86_64.zip",
+  "zen-x86_64.zip"
+]
   }
 ]
