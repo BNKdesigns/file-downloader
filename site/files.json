@@ -1,8 +1,8 @@
 [
   {
-    "name": "opencode-windows-x64.zip",
-    "size": "53811675",
-    "sha256": "954698a20ed338a03ea6416e5a21053a75140e3642413b232f8665e09df73b20",
-    "parts": ["opencode-windows-x64.zip"]
+    "name": "ffmpeg.js",
+    "size": "4126",
+    "sha256": "a4c09a1997ac582a735fc21e20f9913df4af6dde4ebb373f1d714a4b6e7616f1",
+    "parts": ["ffmpeg.js"]
   }
 ]
