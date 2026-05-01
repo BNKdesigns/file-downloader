@@ -1,8 +1,8 @@
 [
   {
-    "name": "index.js",
-    "size": "3286",
-    "sha256": "bd47584d5d74825c896195f5eab75e32e2374969d3289eec4cfc6ba661d4fbf1",
-    "parts": ["index.js"]
+    "name": "app-release.apk",
+    "size": "6857773",
+    "sha256": "59dd29f9911433314f51e01a453fd9240043282e28f408711528e6142be07df7",
+    "parts": ["app-release.apk"]
   }
 ]
