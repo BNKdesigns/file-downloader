@@ -1,8 +1,8 @@
 [
   {
-    "name": "app-release.apk",
-    "size": "6857773",
-    "sha256": "59dd29f9911433314f51e01a453fd9240043282e28f408711528e6142be07df7",
-    "parts": ["app-release.apk"]
+    "name": "TeamSpeak3-Client-linux_amd64-3.6.0.tar.gz",
+    "size": "27150",
+    "sha256": "9eb52ee46c7ab5ea4ca0982415da99fded1b7d7354f75e50847bdae6cb44eb66",
+    "parts": ["TeamSpeak3-Client-linux_amd64-3.6.0.tar.gz"]
   }
 ]
