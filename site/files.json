@@ -1,8 +1,8 @@
 [
   {
-    "name": "TeamSpeak3-Client-linux_amd64-3.6.0.tar.gz",
-    "size": "27150",
-    "sha256": "9eb52ee46c7ab5ea4ca0982415da99fded1b7d7354f75e50847bdae6cb44eb66",
-    "parts": ["TeamSpeak3-Client-linux_amd64-3.6.0.tar.gz"]
+    "name": "forge-1.8.9-11.15.1.2318-1.8.9-universal.jar",
+    "size": "3805686",
+    "sha256": "596512ad5f12f95d8a3170321543d4455d23b8fe649c68580c5f828fe74f6668",
+    "parts": ["forge-1.8.9-11.15.1.2318-1.8.9-universal.jar"]
   }
 ]
